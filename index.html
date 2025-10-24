@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terror Alarm - Monitoring and Combating Extremism Globally</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Top Contact Bar */
+        .top-bar {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .top-bar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-bar a:hover {
+            color: #e74c3c;
+        }
+
+        .social-links a {
+            margin-left: 15px;
+            font-size: 18px;
+        }
+
+        /* Header/Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #c0392b;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 12px;
+            font-weight: normal;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #c0392b;
+        }
+
+        .cta-button {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%232c3e50" width="1200" height="600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 150px 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .hero-button {
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .hero-button.primary {
+            background-color: #c0392b;
+            color: #fff;
+            border: 2px solid #c0392b;
+        }
+
+        .hero-button.primary:hover {
+            background-color: #a93226;
+        }
+
+        .hero-button.secondary {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .hero-button.secondary:hover {
+            background-color: #fff;
+            color: #2c3e50;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section */
+        section {
+            padding: 80px 20px;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        /* Service Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            padding: 30px;
+            border-radius: 8px;
+            border: 3px solid;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .card p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .card a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .card a:hover {
+            color: #c0392b;
+        }
+
+        /* Card Color Variations */
+        .card.mint {
+            background-color: #d5f4e6;
+            border-color: #52c79f;
+        }
+
+        .card.pink {
+            background-color: #f8e5e5;
+            border-color: #e89999;
+        }
+
+        .card.purple {
+            background-color: #e8e5f8;
+            border-color: #9d8fd6;
+        }
+
+        .card.orange {
+            background-color: #fff3e0;
+            border-color: #ffb74d;
+        }
+
+        .card.green {
+            background-color: #c8e6c9;
+            border-color: #66bb6a;
+        }
+
+        .card.blue {
+            background-color: #e3f2fd;
+            border-color: #64b5f6;
+        }
+
+        /* CTA Card */
+        .cta-card {
+            background-color: #2c5f5d;
+            color: #fff;
+            padding: 50px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .cta-card h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .cta-card p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-card .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cta-card .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .cta-card .contact-info a:hover {
+            color: #c0392b;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .about-text ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .about-text ul li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+        }
+
+        .about-text ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #52c79f;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* Services Section */
+        .service-detail {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .service-detail h3 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #c0392b;
+        }
+
+        .service-detail h4 {
+            font-size: 20px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .service-detail p {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 50px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #c0392b;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #c0392b;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-card .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Contact Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-links">
+                <a href="https://signal.me/#eu/yd0T0i2CjhS6k6U7qss7Z2AJPaZpTTd0FyoRtpz37nH2yCKp1OBKpr1OHj6uERd_">📞 Signal: TL6HQ.16</a>
+                ✉️ info@terroralarm.org</a>
+            </div>
+            <div class="social-links">
+                <a href="https://facebook.com/terroralarm.org" target="_blank" title="Facebook">📘</a>
+                <a href="https://twitter.com/Terror_Alarm" target="_blank" title="X (Twitter)">✖️</a>
+                <a href="https://instagram.com/terroralarm_official" target="_blank" title="Instagram">📷</a>
+                <a href="https://t.me/terroralarm" target="_blank" title="LinkedIn">💼</a>
+                <a href="https://youtube.com" target="_blank" title="YouTube">📺</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+                TERROR ALARM
+                <span>Monitoring and Combating Extremism Globally</span>
+            </div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#take-action">Take Action</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#extremist-list">Extremist List</a></li>
+                <li><a href="#donation">Donation</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Fostering a Safer World</h1>
+        <p>Terror Alarm is dedicated to monitoring, reporting, and combating extremism and terrorism globally through our advanced <a style="color:Tomato;" href="https://github.com/TerrorAlarm" target="_blank" ><style type="text/css">
+   a {
+      text-decoration:none;
+   }
+</style>predictive agentic anti-terror AI</a>, developed by our expert team. This cutting-edge system autonomously analyzes real-time data, forecasts threats with high accuracy, and proactively counters radicalization by identifying and flagging extremist content. We expose extremist activities, promote equality, and empower communities through actionable intelligence and transparency, enhanced by our AI's ability to deliver precise, ethical, and timely interventions.
+
+</p>
+        <div class="hero-buttons">
+            <a href="#take-action" class="hero-button primary">Report Incident</a>
+            <a href="#about" class="hero-button secondary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Quick Action Cards -->
+    <section style="background-color: #fff;">
+        <div class="container">
+            <h2>How We Help</h2>
+            <div class="cards-grid">
+                <div class="card mint">
+                    <h3>Report Hate Crimes</h3>
+                    <p>Secure and anonymous reporting system for hate crimes and extremist activities. Your safety and privacy are our priority.</p>
+                    <a href="#take-action">Report Now →</a>
+                </div>
+                <div class="card pink">
+                    <h3>Extremist Database</h3>
+                    <p>Access our comprehensive database of known extremist groups and individuals, sourced from verified intelligence.</p>
+                    <a href="https://terroralarm.org/download/terror-list.pdf" target="_blank">View Database →</a>
+                </div>
+                <div class="card purple">
+                    <h3>AI Security Solutions</h3>
+                    <p>Advanced AI-driven monitoring and cybersecurity solutions to detect and neutralize extremist threats in real-time.</p>
+                    <a href="#services">Learn More →</a>
+                </div>
+                <div class="card orange">
+                    <h3>Community Support</h3>
+                    <p>Resources, training, and support for communities, law enforcement, and military to combat extremism effectively.</p>
+                    <a href="#services">Get Support →</a>
+                </div>
+                <div class="card green">
+                    <h3>Digital Afterlife</h3>
+                    <p>Preserve digital legacies and ensure extremist content is flagged and removed posthumously with our specialized service.</p>
+                    <a href="#services">Explore Service →</a>
+                </div>
+                <div class="card blue">
+                    <h3>Support Our Mission</h3>
+                    <p>Your donation helps fund AI security, intelligence sharing, and community programs that make a real difference.</p>
+                    <a href="#donation">Donate Now →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2>About Terror Alarm</h2>
+            <div class="about-content">
+                <div class="about-image"></div>
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>Our work spans monitoring extremist activities, providing intelligence to law enforcement, and offering cutting-edge AI security solutions.</p>
+                    <h4>Core Values</h4>
+                    <ul>
+                        <li>Intelligence sharing with Free World governments</li>
+    <li>Combating antisemitism through AI-driven monitoring and response</li>
+<li>Preventing terrorist attacks through predictive AI analysis</li>
+                    <li>Justice for victims of extremism and hate crimes</li>
+                        <li>Equality for all communities regardless of background</li><li>Supporting victims of antisemitism in European Union</li>
+
+
+                                                <li>Equality for all communities regardless of background</li>
+
+                        <li>Safety through proactive monitoring and intervention</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Take Action Section -->
+    <section id="take-action" style="background-color: #fff;">
+        <div class="container">
+            <h2>Take Action Against Extremism</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; color: #555; font-size: 18px;">
+                Empower yourself to actively combat hate and extremism through our secure reporting system. All submissions are encrypted and can be made anonymously.
+            </p>
+            <div class="cards-grid">
+                <div class="card mint">
+                    <h3>Report Hate Crimes</h3>
+                    <p>Use our secure form to report incidents of hate crimes. Include location, description, and optional file uploads (photos, videos). We provide guidance on anonymous reporting and legal protections.</p>
+                    <a href="#contact">Submit Report →</a>
+                </div>
+                <div class="card pink">
+                    <h3>Report Antisemitism</h3>
+                    <p>Dedicated form for reporting antisemitic incidents. Access resources on recognizing antisemitism and connect with support hotlines for immediate assistance.</p>
+                    <a href="#contact">Report Incident →</a>
+                </div>
+                <div class="card purple">
+                    <h3>Report Racism</h3>
+                    <p>Report racially motivated incidents and access educational content on systemic racism and allyship. We partner with organizations to ensure comprehensive support.</p>
+                    <a href="#contact">File Report →</a>
+                </div>
+                <div class="card orange">
+                    <h3>Report Equality Crimes</h3>
+                    <p>Report crimes targeting marginalized groups based on gender, sexuality, or disability. Connect with partner organizations for specialized support and resources.</p>
+                    <a href="#contact">Get Help →</a>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px; padding: 30px; background-color: #f8f9fa; border-radius: 8px;">
+                <h4 style="color: #2c3e50; margin-bottom: 15px;">Features of Our Reporting System</h4>
+                <p style="color: #555;">✓ Encrypted submissions for maximum security | ✓ Real-time status updates on your reports | ✓ Follow-up resources and support | ✓ Anonymous reporting options</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; color: #555; font-size: 18px;">
+                Terror Alarm offers specialized services to enhance safety and combat extremism through cutting-edge technology and intelligence sharing.
+            </p>
+
+            <div class="service-detail">
+                <h3>Digital Afterlife</h3>
+                <p>A groundbreaking service designed to preserve and protect digital legacies while ensuring extremist content is flagged and removed posthumously.</p>
+                <h4>Features:</h4>
+                <p>• Automated scanning of deceased users' social media accounts for harmful content<br>
+                • Secure data archiving to preserve positive digital memories<br>
+                • Family support services to manage digital estates<br>
+                • Proactive removal of extremist propaganda and hate speech</p>
+                <p><strong>Sign up today</strong> to protect your digital legacy or manage a loved one's estate with our comprehensive support system.</p>
+            </div>
+
+            <div class="service-detail">
+                <h3>AI Security</h3>
+                <p>Advanced artificial intelligence solutions designed to detect, monitor, and neutralize extremist threats across digital platforms and physical devices.</p>
+                
+                <h4>Secure Humanoids</h4>
+                <p>AI-driven monitoring of humanoid robots to prevent misuse in extremist activities. Our system includes real-time threat detection, behavioral analysis, and automated intervention protocols to ensure these advanced technologies are not weaponized.</p>
+                
+                <h4>Secure Devices</h4>
+                <p>Comprehensive cybersecurity solutions for IoT devices with AI algorithms that detect and neutralize extremist propaganda, hacking attempts, and unauthorized access. Protect your smart home, business infrastructure, and connected devices from extremist exploitation.</p>
+                
+                <p><strong>Case Studies:</strong> Our AI security solutions have successfully prevented numerous attacks and interventions. Contact us to learn more about subscription plans for businesses and organizations.</p>
+            </div>
+
+            <div class="service-detail">
+                <h3>Military and Police Support</h3>
+                <p>Specialized intelligence sharing and training resources for law enforcement and military agencies worldwide.</p>
+                
+                <h4>Intelligence Sharing Platform</h4>
+                <p>Access Terror Alarm's comprehensive extremist database and receive real-time threat alerts. Our secure platform provides verified agencies with critical intelligence to prevent attacks and track extremist activities.</p>
+                
+                <h4>Training and Resources</h4>
+                <p>• Training modules on recognizing extremist tactics and ideologies<br>
+                • Counter-terrorism strategies based on latest research<br>
+                • Community policing best practices<br>
+                • Crisis response protocols and intervention techniques</p>
+                
+                <p><strong>Secure Portal:</strong> Verified agencies can access our secure portal with API integration for seamless intelligence sharing and real-time updates.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extremist List Section -->
+    <section id="extremist-list" style="background-color: #fff;">
+        <div class="container">
+            <h2>Extremist Database</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; color: #555; font-size: 18px;">
+                Our transparent, searchable database provides verified intelligence on known extremist groups and individuals worldwide.
+            </p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Comprehensive Intelligence</h3>
+                    <p>Access detailed profiles including history, activities, and known affiliations of extremist entities. Our database is continuously updated with verified intelligence from trusted sources.</p>
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Searchable database with advanced filters (region, ideology, threat level)</li>
+                        <li>Interactive global threat map showing extremist activity hotspots</li>
+                        <li>Data visualizations and trend analysis</li>
+                        <li>Regular updates from verified intelligence sources</li>
+                    </ul>
+                    <p style="margin-top: 20px;"><strong>Download:</strong> <p>Access our comprehensive database of known extremist groups and individuals, sourced from verified intelligence.</p>
+                    <a href="https://terroralarm.org/download/terror-list.pdf" target="_blank">Download the list</a></p>
+                </div>
+                <div class="about-image" style="background: linear-gradient(135deg, #c0392b 0%, #8e44ad 100%);"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donation" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2>Support Our Mission</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; color: #555; font-size: 18px;">
+                Your financial support enables us to continue our vital work in monitoring extremism, developing AI security solutions, and supporting communities worldwide.
+            </p>
+            
+            <div class="cards-grid" style="margin-bottom: 50px;">
+                <div class="card mint">
+                    <h3>One-Time Donation</h3>
+                    <p>Make a single contribution to support our immediate initiatives and operational costs. Every donation makes a difference.</p>
+                    <a href="https://buy.stripe.com/fZe01odn10AHgPC3cc" target="_blank">Donate Now →</a>
+                </div>
+                <div class="card purple">
+                    <h3>Monthly Support</h3>
+                    <p>Become a recurring donor and provide sustained support for our long-term programs and community outreach efforts.</p>
+                    <a href="#contact">Set Up Monthly →</a>
+                </div>
+                <div class="card orange">
+                    <h3>Corporate Partnership</h3>
+                    <p>Partner with Terror Alarm to demonstrate your organization's commitment to safety and social responsibility.</p>
+                    <a href="#contact">Learn More →</a>
+                </div>
+            </div>
+
+            <div class="service-detail">
+                <h3>How Your Donation Helps</h3>
+                <h4>Fund Allocation Transparency</h4>
+                <p>We believe in complete transparency about how your contributions are used:</p>
+                <p>• <strong>40%</strong> - Technology development (AI security, database systems, monitoring tools)<br>
+                • <strong>30%</strong> - Community outreach and education programs<br>
+                • <strong>20%</strong> - Intelligence gathering and verification<br>
+                • <strong>10%</strong> - Administrative and operational costs</p>
+                
+                <h4>Donation Tiers & Benefits</h4>
+                <p>• <strong>Supporter ($25+):</strong> Monthly newsletter with global threat updates<br>
+                • <strong>Advocate ($100+):</strong> Exclusive webinars with security experts<br>
+                • <strong>Guardian ($500+):</strong> Annual impact report and recognition<br>
+                • <strong>Protector ($1000+):</strong> Direct consultation with our intelligence team</p>
+                
+                <p style="margin-top: 20px;"><strong>Payment Options:</strong> We accept credit cards, PayPal, bank transfers, and cryptocurrency donations for maximum flexibility.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Card -->
+    <div class="container">
+        <div class="cta-card">
+            <h3>Ready to Make a Difference?</h3>
+            <p>Contact us today to report incidents, access our services, or learn how you can contribute to a safer world.</p>
+            <div class="contact-info">
+                <a href="https://signal.me/#eu/yd0T0i2CjhS6k6U7qss7Z2AJPaZpTTd0FyoRtpz37nH2yCKp1OBKpr1OHj6uERd_">📞 TA6HQ.16</a>
+               ✉️ info@terroralarm.org</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #fff;">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; color: #555; font-size: 18px;">
+                We're here to help. Reach out for inquiries, partnerships, urgent reports, or support through multiple channels.
+            </p>
+            
+            <div class="cards-grid">
+                <div class="card mint">
+                    <h3>General Inquiries</h3>
+                    <p><strong>Email:</strong> info@terroralarm.org<br>
+                    <strong>Signal:</strong> TA6HQ.16<br>
+                    <strong>Address:</strong> Terror Alarm HQ<br>&#x1f1e9;&#x1f1f0; Copenhagen, Denmark
+                  <br>  &#127466;&#127480; Malaga, Spain<br>
+                    &#x1F1F8;&#x1F1EA; Helsingborg, Sweden</p>
+                    
+                </div>
+                <div class="card pink">
+                    <h3>Urgent Reports</h3>
+                    <p><strong>Toll-Free Hotline:</strong><br>
+                    Available 24/7 for immediate threat reporting and emergency situations.</p>
+                    <p style="font-size: 20px; font-weight: bold; color: #c0392b;">TG: @Terror_Alarm<br>X (Twitter): @Terror_Alarm</p>
+                </div>
+                <div class="card purple">
+                    <h3>Social Media</h3>
+                    <p>Follow us for real-time updates, extremism alerts, and community campaigns:</p>
+                    <p><strong><a href="https://x.com/Terror_Alarm" target="_blank">X (Twitter)</strong></a> | <strong><a href="https://t.me/terroralarm" target="_blank">Telegram</strong><br></a>
+                    <strong><a href="https://fb.com/terroralarm.org" target="_blank">Facebook</strong></a> | <strong><a href="https://instagram.com/terroralarm_official" target="_blank">Instagram</strong><br></a>
+                    <strong><a href="https://www.threads.com/@terroralarm_official?" target="_blank">Threads</strong></p></a>
+                </div>
+            </div>
+
+            <div class="service-detail" style="margin-top: 50px;">
+                <h3>Frequently Asked Questions</h3>
+                <h4>How do I report extremism anonymously?</h4>
+                <p>Use our secure online reporting forms or call/text our Signal hotline. You are not required to provide personal information, and all submissions are encrypted by Signal.</p>
+                
+                <h4>What happens after I submit a report?</h4>
+                <p>Our intelligence team reviews all reports. Verified threats are immediately shared with relevant authorities or affiliated social media accounts for public awareness, depending on the threat's nature.</p>
+                
+                <h4>How do you protect my privacy?</h4>
+                <p>We use military-grade encryption for all communications and data storage. Personal information is never shared without explicit consent, and anonymous reporting is fully supported.</p>
+                
+                <h4>Can I volunteer or partner with Terror Alarm?</h4>
+                <p>Yes! We welcome partnerships with organizations, governments, and individuals committed to combating extremism. Contact us at support@terroralarm.org to discuss opportunities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Terror Alarm</h3>
+                <p>Dedicated to fostering a safer world by exposing extremist activities, promoting equality, and empowering communities.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="https://terroralarm.org/about/" target=*_blank">About Us</a></li>
+                    <li><a href="#take-action">Take Action</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="https://terroralarm.org/download/terror-list.pdf" target="_blank">Extremist Database</a></li>
+                    <li><a href="https://buy.stripe.com/fZe01odn10AHgPC3cc" target="_blank">Donate</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#services">Digital Afterlife</a></li>
+                    <li><a href="#services">AI Security</a></li>
+                    <li><a href="#services">Military & Police Support</a></li>
+                    <li><a href="#take-action">Report Hate Crimes</a></li>
+                    <li><a href="#take-action">Report Antisemitism</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>info@terroralarm.org</a></li>
+                    <li><a href="https://signal.me/#eu/yd0T0i2CjhS6k6U7qss7Z2AJPaZpTTd0FyoRtpz37nH2yCKp1OBKpr1OHj6uERd_"></a></li>
+                    <li>Terror Alarm HQ</li>
+                    <li>&#127466;&#127480; Malaga, Spain</li>
+                     <li>&#x1f1e9;&#x1f1f0; Copenhagen, Denmark</li>
+                      <li>&#x1F1F8;&#x1F1EA; Helsingborg, Sweden</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2016_2026 Terror Alarm. All rights reserved. | <a href="https://terroralarm.org/news/?page=5" target="_blank" style="color: #888;">Privacy Policy</a> | <a href="https://terroralarm.org/news/?page=5" target="_blank" style="color: #888;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section[id]');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Simple mobile menu toggle (for future enhancement)
+        const createMobileMenu = () => {
+            const nav = document.querySelector('nav ul');
+            const menuBtn = document.createElement('button');
+            menuBtn.innerHTML = '☰';
+            menuBtn.style.cssText = 'display: none; font-size: 24px; background: none; border: none; cursor: pointer;';
+            
+            if (window.innerWidth <= 768) {
+                menuBtn.style.display = 'block';
+                document.querySelector('nav').insertBefore(menuBtn, nav);
+                
+                menuBtn.addEventListener('click', () => {
+                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                    nav.style.flexDirection = 'column';
+                    nav.style.position = 'absolute';
+                    nav.style.top = '70px';
+                    nav.style.right = '20px';
+                    nav.style.background = '#fff';
+                    nav.style.padding = '20px';
+                    nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                });
+            }
+        };
+
+        window.addEventListener('resize', createMobileMenu);
+        createMobileMenu();
+    </script>
+</body>
+</html>
+
